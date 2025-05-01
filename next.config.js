@@ -1,9 +1,9 @@
-import type { NextConfig } from "next";
+/** @type {import('next').NextConfig} */
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   /* config options here */
-  basePath: "/KoreUg-Website",  
-  output: "export",
+  basePath: '/KoreUg-Website',  
+  output: 'export',
   distDir: 'dist',
   images: {
     unoptimized: true,
@@ -16,4 +16,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
