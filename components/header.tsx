@@ -84,7 +84,7 @@ export function Header() {
         <div className="w-1/4">
           <Link href="#home" className="flex items-center" onClick={(e) => handleNavClick(e, "#home")}>
             <Image
-              src={getValidImageSrc("/images/logo-no-background.png") || "/placeholder.svg"}
+              src={getValidImageSrc("./images/logo-no-background.png") || "./placeholder.svg"}
               alt="Kore Logo"
               width={120}
               height={60}

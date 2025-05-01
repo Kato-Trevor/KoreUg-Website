@@ -122,7 +122,7 @@ export function Hero() {
           <div className="flex justify-center">
             <div className="relative w-full max-w-xs sm:max-w-sm md:max-w-md aspect-square">
               <Image
-                src={getValidImageSrc("/images/logo-no-background.png") || "/placeholder.svg"}
+                src={getValidImageSrc("./images/logo-no-background.png") || "./placeholder.svg"}
                 alt="Kore Logo"
                 fill
                 className="object-contain"

@@ -19,7 +19,7 @@ export function Footer() {
         <div className="flex flex-col items-center text-center">
           <Link href="#home" className="inline-block mb-4">
             <Image
-              src={getValidImageSrc("/images/logo-no-background.png") || "/placeholder.svg"}
+              src={getValidImageSrc("./images/logo-no-background.png") || "./placeholder.svg"}
               alt="Kore Logo"
               width={120}
               height={60}

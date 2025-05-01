@@ -58,7 +58,7 @@ export function About() {
           <div className="relative mt-8 lg:mt-0">
             <div className="aspect-square rounded-2xl overflow-hidden border border-gray-100 bg-navy p-4">
               <Image
-                src={getValidImageSrc("/spina-bifida-baby-womb.png") || "/placeholder.svg"}
+                src={getValidImageSrc("./spina-bifida-baby-womb.png") || "./placeholder.svg"}
                 alt="Artistic illustration of a baby with spina bifida in the womb"
                 width={600}
                 height={600}

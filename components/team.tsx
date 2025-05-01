@@ -22,21 +22,21 @@ export function Team() {
       id: "luba",
       name: "Luba Pauline",
       role: "Founder",
-      image: "/team/luba-pauline.png",
+      image: "./team/luba-pauline.png",
       level: 1,
     },
     {
       id: "danita",
       name: "Danita Turiho",
       role: "Co-founder",
-      image: "/team/danita-turiho.png",
+      image: "./team/danita-turiho.png",
       level: 1,
     },
     {
       id: "vanessa",
       name: "Vanessa Namukwaya",
       role: "Media",
-      image: "/team/vanessa-namukwaya.png",
+      image: "./team/vanessa-namukwaya.png",
       level: 2,
       department: "Communications",
       reportsTo: "luba",
@@ -45,7 +45,7 @@ export function Team() {
       id: "frank",
       name: "Frank Ogwang",
       role: "Head of Legal",
-      image: "/team/frank-ogwang.png",
+      image: "./team/frank-ogwang.png",
       level: 2,
       department: "Legal",
       reportsTo: "danita",
@@ -54,7 +54,7 @@ export function Team() {
       id: "immelda",
       name: "Dr. Immelda Alikaya",
       role: "Medical Head",
-      image: "/team/dr-immelda-alikaya.png",
+      image: "./team/dr-immelda-alikaya.png",
       level: 2,
       department: "Medical",
       reportsTo: "luba",
@@ -63,7 +63,7 @@ export function Team() {
       id: "golder",
       name: "Golder Alikaya",
       role: "IT",
-      image: "/team/golder-alikaya.png",
+      image: "./team/golder-alikaya.png",
       level: 2,
       department: "Technology",
       reportsTo: "danita",
@@ -72,7 +72,7 @@ export function Team() {
       id: "adrian",
       name: "Adrian Masolo",
       role: "Legal Aid",
-      image: "/team/adrian-masolo.png",
+      image: "./team/adrian-masolo.png",
       level: 2,
       department: "Legal",
       reportsTo: "frank",
@@ -82,7 +82,7 @@ export function Team() {
   // Helper function to get a valid image source
   const getValidImageSrc = (src: string | undefined | null): string => {
     if (!src || src === "") {
-      return "/diverse-group-city.png"
+      return "./diverse-group-city.png"
     }
     return src
   }
@@ -115,7 +115,7 @@ export function Team() {
                 >
                   <div className="relative w-40 h-40 mb-4 overflow-hidden rounded-full border-4 border-primary">
                     <Image
-                      src={getValidImageSrc(member.image) || "/placeholder.svg"}
+                      src={getValidImageSrc(member.image) || "./placeholder.svg"}
                       alt={member.name}
                       fill
                       className="object-cover"
@@ -151,7 +151,7 @@ export function Team() {
 
                   <div className="relative w-28 h-28 mb-4 overflow-hidden rounded-full border-3 border-primary/70">
                     <Image
-                      src={getValidImageSrc(member.image) || "/placeholder.svg"}
+                      src={getValidImageSrc(member.image) || "./placeholder.svg"}
                       alt={member.name}
                       fill
                       className="object-cover"

@@ -7,17 +7,17 @@ export function Programs() {
       title: "Community Education",
       description:
         "Workshops and training sessions for communities to understand spina bifida and support affected individuals.",
-      image: "/diverse-learning-together.png",
+      image: "./diverse-learning-together.png",
     },
     {
       title: "Family Support Network",
       description: "Connecting families affected by spina bifida to share experiences and resources.",
-      image: "/community-support.png",
+      image: "./community-support.png",
     },
     {
       title: "Healthcare Access Initiative",
       description: "Working with healthcare providers to improve access to specialized care for spina bifida patients.",
-      image: "/collaborative-care-discussion.png",
+      image: "./collaborative-care-discussion.png",
     },
   ]
 
@@ -37,7 +37,7 @@ export function Programs() {
             >
               <div className="relative h-64 overflow-hidden">
                 <Image
-                  src={program.image || "/placeholder.svg"}
+                  src={program.image || "./placeholder.svg"}
                   alt={program.title}
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
