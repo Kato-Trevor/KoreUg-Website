@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
+  basePath: "/KoreUg-Website",  
+  output: "export",
     eslint: {
         ignoreDuringBuilds: true,
     },
