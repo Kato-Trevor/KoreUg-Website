@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
   basePath: "/KoreUg-Website",  
   output: "export",
+  distDir: 'dist',
   images: {
     unoptimized: true,
   },
