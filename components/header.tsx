@@ -5,8 +5,8 @@ import type React from "react"
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Instagram } from "lucide-react"
-import { scrollToSection } from "@/utils/scroll-utils"
+import { Menu, X, Instagram, Mail } from "lucide-react";
+import { scrollToSection } from "@/utils/scroll-utils";
 
 const navItems = [
   { name: "Home", href: "#home" },
@@ -14,64 +14,69 @@ const navItems = [
   { name: "Team", href: "#team" },
   { name: "Mission", href: "#mission" },
   { name: "Objectives", href: "#objectives" },
-]
+];
 
-const INSTAGRAM_URL = "https://www.instagram.com/kore_community?igsh=MXF3d2t0OW9lcWlleQ=="
+const INSTAGRAM_URL =
+  "https://www.instagram.com/kore_community?igsh=MXF3d2t0OW9lcWlleQ==";
+const EMAIL_ADDRESS = "koreuganda@gmail.com";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
-  const [activeSection, setActiveSection] = useState("home")
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => {
       // Handle scrolling state
       if (window.scrollY > 10) {
-        setIsScrolled(true)
+        setIsScrolled(true);
       } else {
-        setIsScrolled(false)
+        setIsScrolled(false);
       }
 
       // Handle active section highlighting
-      const sections = navItems.map((item) => item.href.substring(1))
+      const sections = navItems.map((item) => item.href.substring(1));
 
       // Find the current section - improved calculation
       const current = sections.reduce((current, section) => {
-        const element = document.getElementById(section)
+        const element = document.getElementById(section);
         if (element) {
-          const rect = element.getBoundingClientRect()
+          const rect = element.getBoundingClientRect();
           // Consider a section active when its top is near the top of the viewport
           // Using a more precise calculation with a smaller threshold
           if (rect.top <= 100 && rect.bottom > 100) {
-            return section
+            return section;
           }
         }
-        return current
-      }, activeSection)
+        return current;
+      }, activeSection);
 
-      setActiveSection(current)
-    }
+      setActiveSection(current);
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
     // Initial check for active section
-    handleScroll()
+    handleScroll();
 
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [activeSection])
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [activeSection]);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    e.preventDefault()
-    const targetId = href.substring(1)
-    scrollToSection(targetId)
-  }
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    const targetId = href.substring(1);
+    scrollToSection(targetId);
+  };
 
   // Helper function to get a valid image source
   const getValidImageSrc = (src: string | undefined | null): string => {
     if (!src || src === "") {
-      return "/abstract-geometric-logo.png"
+      return "/abstract-geometric-logo.png";
     }
-    return src
-  }
+    return src;
+  };
 
   return (
     <header
@@ -82,9 +87,16 @@ export function Header() {
       <div className="container-custom flex items-center">
         {/* Logo - Left aligned */}
         <div className="w-1/4">
-          <Link href="#home" className="flex items-center" onClick={(e) => handleNavClick(e, "#home")}>
+          <Link
+            href="#home"
+            className="flex items-center"
+            onClick={(e) => handleNavClick(e, "#home")}
+          >
             <Image
-              src={getValidImageSrc("./images/logo-no-background.png") || "./placeholder.svg"}
+              src={
+                getValidImageSrc("./images/logo-no-background.png") ||
+                "./placeholder.svg"
+              }
               alt="Kore Logo"
               width={120}
               height={60}
@@ -102,7 +114,9 @@ export function Header() {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`text-xs sm:text-sm font-medium transition-colors ${
-                  activeSection === item.href.substring(1) ? "text-primary font-bold" : "text-white hover:text-primary"
+                  activeSection === item.href.substring(1)
+                    ? "text-primary font-bold"
+                    : "text-white hover:text-primary"
                 }`}
               >
                 {item.name}
@@ -114,6 +128,13 @@ export function Header() {
         {/* Instagram Icon - Right aligned */}
         <div className="w-1/4 flex justify-end">
           <a
+            href={`mailto:${EMAIL_ADDRESS}`}
+            className="text-white hover:text-primary transition-colors mr-4"
+            aria-label="Send us an email"
+          >
+            <Mail className="h-4 sm:h-5 w-4 sm:w-5" />
+          </a>
+          <a
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -124,7 +145,11 @@ export function Header() {
           </a>
 
           {/* Mobile Navigation Toggle - Only visible on mobile */}
-          <button className="md:hidden ml-4 text-white" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <button
+            className="md:hidden ml-4 text-white"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
             {isOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
@@ -140,7 +165,9 @@ export function Header() {
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href)}
                 className={`text-sm font-medium ${
-                  activeSection === item.href.substring(1) ? "text-primary font-bold" : "text-white hover:text-primary"
+                  activeSection === item.href.substring(1)
+                    ? "text-primary font-bold"
+                    : "text-white hover:text-primary"
                 } transition-colors`}
               >
                 {item.name}
@@ -150,5 +177,5 @@ export function Header() {
         </div>
       )}
     </header>
-  )
+  );
 }
