@@ -125,7 +125,7 @@ export function Header() {
           </nav>
         </div>
 
-        {/* Instagram Icon - Right aligned */}
+        {/* Socials icons - Right aligned */}
         <div className="w-1/4 flex justify-end">
           <a
             href={`mailto:${EMAIL_ADDRESS}`}

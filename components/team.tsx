@@ -92,11 +92,16 @@ export function Team() {
       <div className="container-custom">
         <div className="text-center mb-10 sm:mb-16">
           <div className="inline-block px-3 py-1 mb-3 sm:mb-4 rounded-md bg-primary/20 border border-primary/30">
-            <p className="text-primary text-xs sm:text-sm font-medium">Our People</p>
+            <p className="text-primary text-xs sm:text-sm font-medium">
+              Our People
+            </p>
           </div>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-white">Meet Our Team</h2>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 text-white">
+            Meet Our Team
+          </h2>
           <p className="fluid-text-base sm:fluid-text-lg text-gray-300 max-w-3xl mx-auto">
-            Dedicated professionals committed to supporting individuals and families affected by spina bifida.
+            Dedicated professionals committed to supporting individuals and
+            families affected by spina bifida.
           </p>
         </div>
 
@@ -113,16 +118,20 @@ export function Team() {
                   onMouseEnter={() => setActiveTeamMember(member.id)}
                   onMouseLeave={() => setActiveTeamMember(null)}
                 >
-                  <div className="relative w-40 h-40 mb-4 overflow-hidden rounded-full border-4 border-primary">
+                  <div className="relative w-28 h-28 mb-4 overflow-hidden rounded-full border-4 border-primary">
                     <Image
-                      src={getValidImageSrc(member.image) || "./placeholder.svg"}
+                      src={
+                        getValidImageSrc(member.image) || "./placeholder.svg"
+                      }
                       alt={member.name}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="bg-navy/80 backdrop-blur-sm p-3 rounded-lg border border-primary/30 text-center">
-                    <h4 className="text-xl font-bold text-primary">{member.name}</h4>
+                    <h4 className="text-xl font-bold text-primary">
+                      {member.name}
+                    </h4>
                     <p className="text-gray-300">{member.role}</p>
                   </div>
 
@@ -149,16 +158,20 @@ export function Team() {
                   {/* Vertical connector to horizontal line */}
                   <div className="absolute -top-20 left-1/2 w-px h-20 bg-primary/70 transform -translate-x-1/2"></div>
 
-                  <div className="relative w-28 h-28 mb-4 overflow-hidden rounded-full border-3 border-primary/70">
+                  <div className="relative w-24 h-24 mb-4 overflow-hidden rounded-full border-3 border-primary/70">
                     <Image
-                      src={getValidImageSrc(member.image) || "./placeholder.svg"}
+                      src={
+                        getValidImageSrc(member.image) || "./placeholder.svg"
+                      }
                       alt={member.name}
                       fill
                       className="object-cover"
                     />
                   </div>
                   <div className="bg-navy/80 backdrop-blur-sm p-2 rounded-lg border border-primary/30 text-center w-full">
-                    <h4 className="text-lg font-bold text-primary">{member.name}</h4>
+                    <h4 className="text-lg font-bold text-primary">
+                      {member.name}
+                    </h4>
                     <p className="text-gray-300">{member.role}</p>
                     <p className="text-xs text-gray-400">{member.department}</p>
                   </div>
@@ -171,11 +184,12 @@ export function Team() {
           <div className="inline-flex items-center justify-center gap-2 px-6 py-3 border border-primary/30 rounded-lg bg-navy/30 backdrop-blur-sm">
             <Users className="h-5 w-5 text-primary" />
             <p className="text-primary">
-              <span className="font-bold">Our Strength:</span> Collaboration, Expertise, Compassion
+              <span className="font-bold">Our Strength:</span> Collaboration,
+              Expertise, Compassion
             </p>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
