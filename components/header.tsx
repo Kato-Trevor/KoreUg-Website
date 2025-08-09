@@ -14,6 +14,7 @@ const navItems = [
   { name: "Team", href: "#team" },
   { name: "Mission", href: "#mission" },
   { name: "Objectives", href: "#objectives" },
+  { name: "Projects", href: "#projects" },
 ];
 
 const INSTAGRAM_URL =
@@ -163,7 +164,10 @@ export function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                onClick={(e) => handleNavClick(e, item.href)}
+                onClick={(e) => {
+                  handleNavClick(e, item.href);
+                  setIsOpen(false);
+                }}
                 className={`text-sm font-medium ${
                   activeSection === item.href.substring(1)
                     ? "text-primary font-bold"

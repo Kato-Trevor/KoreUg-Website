@@ -6,6 +6,7 @@ import { Mission } from "@/components/mission"
 import { Objectives } from "@/components/objectives"
 import { Footer } from "@/components/footer"
 import { BackToTop } from "@/components/back-to-top"
+import { Projects } from "@/components/projects"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Team />
       <Mission />
       <Objectives />
+      <Projects />
       <Footer />
       <BackToTop />
     </main>
