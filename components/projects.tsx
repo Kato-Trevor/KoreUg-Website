@@ -20,6 +20,7 @@ interface Project {
   tagline?: string;
   timeline?: string;
   impact?: string;
+  partners?: string;
 }
 
 const projects: Project[] = [
@@ -38,6 +39,7 @@ const projects: Project[] = [
     ],
     tagline: "Health Equity for Spina Bifida",
     timeline: "Ongoing project since July 2025",
+    partners: "Ruby Hospital",
   },
 ];
 
@@ -115,7 +117,7 @@ function ProjectDetailsDialog({ isOpen, onClose, projectId }: ProjectDetailsDial
 
   if (!project) return null
   
-  const {title, description, longDescription, image, objectives, impact, tagline, timeline} = project;
+  const {title, description, longDescription, image, objectives, impact, tagline, timeline, partners} = project;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
@@ -140,13 +142,11 @@ function ProjectDetailsDialog({ isOpen, onClose, projectId }: ProjectDetailsDial
             />
           </div> */}
 
-          {/* Long Description */}
           <div>
             <h3 className="text-base md:text-lg font-semibold mb-2">About This Project</h3>
             <p className="text-gray-700 leading-relaxed text-sm md:text-base">{longDescription}</p>
           </div>
 
-          {/* Objectives */}
           {
             objectives && objectives.length > 0 && 
             <div>
@@ -175,6 +175,13 @@ function ProjectDetailsDialog({ isOpen, onClose, projectId }: ProjectDetailsDial
               <div className="bg-gray-50 p-4 rounded-lg">
                 <h4 className="font-semibold text-primary mb-2 text-sm md:text-base">Tagline</h4>
                 <p className="text-gray-700 text-xs md:text-sm">{tagline}</p>
+              </div>
+            }
+            {
+              partners && 
+              <div className="bg-gray-50 p-4 rounded-lg">
+                <h4 className="font-semibold text-primary mb-2 text-sm md:text-base">Partners</h4>
+                <p className="text-gray-700 text-xs md:text-sm">{partners}</p>
               </div>
             }
             {
