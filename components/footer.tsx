@@ -101,7 +101,7 @@ export function Footer() {
               >
                 <img
                   className="h-5 sm:h-6 w-5 sm:w-6"
-                  src="./icons/icons8-x.svg"
+                  src="./icons/x-icon.svg"
                   alt="X"
                 />
               </a>
