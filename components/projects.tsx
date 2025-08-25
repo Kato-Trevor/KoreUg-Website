@@ -15,12 +15,14 @@ interface Project {
   title: string;
   description: string;
   image?: string;
-  longDescription: string;
+  longDescription?: string;
   objectives?: string[];
   tagline?: string;
   timeline?: string;
   impact?: string;
   partners?: string;
+  hasPreview: boolean;
+  url?: string;
 }
 
 const projects: Project[] = [
@@ -40,6 +42,15 @@ const projects: Project[] = [
     tagline: "Health Equity for Spina Bifida",
     timeline: "Ongoing project since July 2025",
     partners: "Ruby Hospital",
+    hasPreview: true,
+  },
+  {
+    title: "Get Involved",
+    description:
+      "Are you interested in becoming a part of our team? Kore Uganda is open to anyone and everyone!",
+    image: "./images/team.jpg",
+    hasPreview: false,
+    url: "https://forms.gle/jvnycEdvNkZ3Ww9c6",
   },
 ];
 
@@ -84,13 +95,24 @@ export function Projects() {
               <div className="p-6">
                 <h3 className="text-xl font-bold mb-3">{project.title}</h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
-                <Button
-                  variant="link"
-                  className="text-primary p-0 font-medium"
-                  onClick={() => handleLearnMore(index)}
-                >
-                  Learn More
-                </Button>
+                {project.hasPreview ? (
+                  <Button
+                    variant="link"
+                    className="text-primary p-0 font-medium"
+                    onClick={() => handleLearnMore(index)}
+                  >
+                    Learn More
+                  </Button>
+                ) : (
+                  <a
+                    href={project.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary p-0 font-medium"
+                  >
+                    Join us
+                  </a>
+                )}
               </div>
             </div>
           ))}
@@ -117,7 +139,7 @@ function ProjectDetailsDialog({ isOpen, onClose, projectId }: ProjectDetailsDial
 
   if (!project) return null
   
-  const {title, description, longDescription, image, objectives, impact, tagline, timeline, partners} = project;
+  const {title, description, longDescription, objectives, impact, tagline, timeline, partners} = project;
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>

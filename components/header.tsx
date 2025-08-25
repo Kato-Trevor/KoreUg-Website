@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import type React from "react"
+import type React from "react";
 
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Instagram, Mail } from "lucide-react";
 import { scrollToSection } from "@/utils/scroll-utils";
 
@@ -19,6 +19,9 @@ const navItems = [
 
 const INSTAGRAM_URL =
   "https://www.instagram.com/kore_community?igsh=MXF3d2t0OW9lcWlleQ==";
+const TIKTOK_URL = "https://www.tiktok.com/@koreuganda?_t=ZM-8yw3IODX3Pa&_r=1";
+const X_URL =
+  "https://x.com/koreuganda/status/1956746445987438633?s=46&t=Tfr3jwrWUTxeodxnngqWgA";
 const EMAIL_ADDRESS = "koreuganda@gmail.com";
 
 export function Header() {
@@ -85,7 +88,7 @@ export function Header() {
         isScrolled ? "bg-navy shadow-md py-2" : "bg-transparent py-3 sm:py-4"
       }`}
     >
-      <div className="container-custom flex items-center">
+      <div className="container-custom flex items-center justify-between w-full">
         {/* Logo - Left aligned */}
         <div className="w-1/4">
           <Link
@@ -127,10 +130,10 @@ export function Header() {
         </div>
 
         {/* Socials icons - Right aligned */}
-        <div className="w-1/4 flex justify-end">
+        <div className="w-1/4 flex justify-end gap-3">
           <a
             href={`mailto:${EMAIL_ADDRESS}`}
-            className="text-white hover:text-primary transition-colors mr-4"
+            className="hidden md:block text-white hover:text-primary transition-colors"
             aria-label="Send us an email"
           >
             <Mail className="h-4 sm:h-5 w-4 sm:w-5" />
@@ -139,10 +142,34 @@ export function Header() {
             href={INSTAGRAM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white hover:text-primary transition-colors"
+            className="hidden md:block text-white hover:text-primary transition-colors"
             aria-label="Visit our Instagram"
           >
             <Instagram className="h-4 sm:h-5 w-4 sm:w-5" />
+          </a>
+          <a
+            href={TIKTOK_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block text-white hover:text-primary transition-colors"
+            aria-label="Visit our TikTok"
+          >
+            <img
+              className="h-5 sm:h-6 w-5 sm:w-6"
+              src="./icons/tiktok-icon.svg"
+            />
+          </a>
+          <a
+            href={X_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:block text-white hover:text-primary transition-colors"
+            aria-label="Visit our X"
+          >
+            <img
+              className="h-4 sm:h-5 w-4 sm:w-5"
+              src="./icons/x-icon.svg"
+            />
           </a>
 
           {/* Mobile Navigation Toggle - Only visible on mobile */}
