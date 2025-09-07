@@ -19,7 +19,7 @@ const teamMembers: TeamMember[] = [
     id: "luba",
     name: "Luba Pauline",
     role: "Executive Director/Founder",
-    image: "./team/luba-pauline.png",
+    image: "./team/luba-pauline.jpg",
     level: 1,
   },
   {
