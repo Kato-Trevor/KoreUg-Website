@@ -161,17 +161,18 @@ export function Team() {
         {/* Organogram */}
         <div className="organogram relative mx-auto max-w-5xl">
           {/* Level 1 */}
-          <div className="level-1 flex justify-center gap-24 mb-20">
+          <div className="level-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6 sm:gap-4 justify-items-center">
             {teamMembers
               .filter((member) => member.level === 1)
               .map((member) => (
                 <div
                   key={member.id}
-                  className="team-member flex flex-col items-center relative"
+                  className="team-member flex flex-col items-center relative mb-8 w-full max-w-[160px]"
                   onMouseEnter={() => setActiveTeamMember(member.id)}
                   onMouseLeave={() => setActiveTeamMember(null)}
                 >
-                  <div className="relative w-28 h-28 mb-4 overflow-hidden rounded-full border-4 border-primary">
+
+                  <div className="relative w-24 h-24 mb-4 overflow-hidden rounded-full border-4 border-primary">
                     <Image
                       src={
                         getValidImageSrc(member.image) || "./placeholder.svg"
@@ -181,13 +182,13 @@ export function Team() {
                       className="object-cover"
                     />
                   </div>
-                  <div className="bg-navy/80 backdrop-blur-sm p-3 rounded-lg border border-primary/30 text-center">
-                    <h4 className="text-xl font-bold text-primary">
+                  <div className="bg-navy/80 backdrop-blur-sm p-2 rounded-lg border border-primary/30 text-center w-full">
+                    <h4 className="text-lg font-bold text-primary">
                       {member.name}
                     </h4>
                     <p className="text-gray-300">{member.role}</p>
+                    <p className="text-xs text-gray-400">{member.department}</p>
                   </div>
-
                 </div>
               ))}
           </div>
